@@ -1,0 +1,9 @@
+This is a lightweight version of the DCDC TESTING procedere, with a focus on simple tests and ease of data retrieval.
+All files are required for proper execution, but only MainTesting must be ran to begin testing.
+
+Testing parameters can be configured at the top of MainTesting.
+
+FetchBoardData will give you a list of all boards and their results on an Excel Sheet, and can also be used to retrieve
+the scope trace data of any board. User must change destination paths or data will fail to download.
+
+For now, all the tests that need be done are contained in Maintesting.
