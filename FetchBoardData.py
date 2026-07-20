@@ -155,7 +155,7 @@ def Test_Results_Getter(DD, XLSX_NAME) -> None:
         "within_range1": "WARM OPERATIONAL RANGE",
 
         "calibrated_voltage_cold": "CALIBRATED INPUT VOLTAGE (COLD)",
-        "voltage_devcold": "COLD VOLTAGE DEVIATION",
+        "voltage_dev_cold": "COLD VOLTAGE DEVIATION",
         "mc_ave_vol_c": "COLD_POWERCYCLE_AVE_VOLTAGE",
         "mc_ave_cur_c": "COLD_POWERCYCLE_AVE_CURRENT",
         "within_range2": "COLD OPERATIONAL RANGE",
@@ -180,7 +180,7 @@ def Test_Results_Getter(DD, XLSX_NAME) -> None:
 
     wb.save(output_file)
 
-def Voltage_Histogram(board_id,
+def Voltage_Histogram(board_id,xrs,temp="(Warm)",
                       trace_column="multiple_power_cycle_voltage",
                       output_folder=r"C:\Users\StudentAdmin\Desktop"):
     with get_connection() as conn:
@@ -211,15 +211,16 @@ def Voltage_Histogram(board_id,
 
     mp.hist(
         pc_vols,
-        bins=100,
-        label="Voltage Samples"
+        bins=50
     )
+    #added in clearance zone plotting
+    mp.axvspan(xrs[0],xrs[1], alpha=0.35, color="grey", label="Ideal Operating Range")
 
     mp.legend(
         title=f"Ave = {avg_voltage:.5f} V\nStDev = {std_voltage:.5f} V"
     )
 
-    mp.title(f"Voltage for {board_id}")
+    mp.title(f"Voltage Behavior for {board_id}" + temp)
     mp.xlabel("Voltage (V)")
     mp.ylabel("Samples at Voltage")
     mp.grid(True)
@@ -317,6 +318,8 @@ def Plot_All_Board_Voltages(yrs,
 
     print(Fore.GREEN + f"Plot saved to:\n{save_path}")
 
+
+
 if __name__ == "__main__":
     TRCHOICE = input(Fore.MAGENTA + ">Download full SQL data to PC (1)\n"
                                     ">Download full SQL data to external drive (2)\n"
@@ -372,6 +375,23 @@ if __name__ == "__main__":
             sys.exit()
         Plot_All_Board_Voltages([48.0,50.0],trace_column="multiple_power_cycle_voltage_c",
              graph_sub_title= "Voltage Stabily over 10 Power Cycles (Cold)")
+
+    elif TRCHOICE == "4":
+        #specific board behavior plotting
+        board_id = int(input("Board ID: "))
+        if input("Warm or Cold Stability? (W/c)").lower() == "w":
+
+            Voltage_Histogram(board_id,[58.0,61.0])
+            sys.exit()
+        Voltage_Histogram(board_id,trace_column="multiple_power_cycle_voltage_c",
+                         xrs=[48.0,50.0], temp= "(Cold)")
+
+    elif TRCHOICE == "0":
+        #renames id as debug option
+        print("debug change bd id")
+        board_id = input("Board ID: ")
+        new_id = input("New board ID: ")
+        rename_board_id(board_id,new_id)
 
     else:
         sys.exit("INVALID SELECTION")

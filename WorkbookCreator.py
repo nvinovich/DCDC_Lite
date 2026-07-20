@@ -169,3 +169,40 @@ def update_cold_traces(board_id,data):
                                board_id,
                            ))
             conn.commit()
+
+def rename_board_id(old_id, new_id):
+    '''updates an id to a new arg if it does not exist already'''
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute("""
+                SELECT board_id
+                FROM dc_dc_tests
+                WHERE board_id = %s
+            """, (new_id,))
+
+            if cursor.fetchone():
+                raise ValueError(f"Board ID {new_id} already exists.")
+
+            cursor.execute("""
+                UPDATE dc_dc_tests
+                SET board_id = %s
+                WHERE board_id = %s
+            """, (new_id, old_id))
+
+            tests_updated = cursor.rowcount
+
+            cursor.execute("""
+                UPDATE board_traces
+                SET board_id = %s
+                WHERE board_id = %s
+            """, (new_id, old_id))
+
+            traces_updated = cursor.rowcount
+
+            conn.commit()
+
+    print(
+        f"Renamed {old_id} -> {new_id}\n"
+        f"Test rows updated: {tests_updated}\n"
+        f"Trace rows updated: {traces_updated}"
+    )

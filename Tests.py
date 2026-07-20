@@ -38,7 +38,7 @@ def POWER_CYCLE_TEST(PS,DMM,which,
         PS.write("OUTP ON")
     #sorry this delay needed to be so long, voltage is somewhat slow to stabilize from off state
     #ask jane if we care ab that
-        time.sleep(0.5)
+        time.sleep(2)
         DMM.write('INIT')
 
         DMM.query("*OPC?")
