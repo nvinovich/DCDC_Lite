@@ -20,6 +20,16 @@ def get_connection():
 #DROP TABLE dc_dc_tests;
 #DROP TABLE board_traces;
 
+#a weird need but to redo cold tests only, do
+#UPDATE dc_dc_tests
+#SET
+#    calibrated_voltage_cold = NULL,
+#    voltage_dev_cold = NULL,
+#    mc_ave_vol_c = NULL,
+#    mc_ave_cur_c = NULL,
+#    within_range2 = NULL
+#WHERE board_id = 'BOARD_ID';
+
 #this whole routine is very touchy, it may cause issues for both db i/o and data collection if
 #you touch this file, sorry it is poorly documented
 def init_db():

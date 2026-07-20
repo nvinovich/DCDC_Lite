@@ -58,7 +58,7 @@ def POWER_CYCLE_TEST(PS,DMM,which,
         DMM.write('TRAC:CLE "defbuffer1"')
         DMM.write('TRAC:POIN 10')
         DMM.write('TRIG:LOAD "SimpleLoop",10,0.05')
-        time.sleep(2)
+        time.sleep(0.3)
         DMM.write('INIT')
 
         DMM.query("*OPC?")
@@ -76,9 +76,9 @@ def POWER_CYCLE_TEST(PS,DMM,which,
         time.sleep(0.1)
 
     # Calculate statistics
-    avg_voltage = np.mean(pc_vols)
-    std_voltage = np.std(pc_vols)
-    ave_current = np.mean(pc_cur)
+    avg_voltage = round(np.mean(pc_vols),5)
+    std_voltage = round(np.std(pc_vols),5)
+    ave_current = round(np.mean(pc_cur),5)
 
     #this selects which data sheet to update
     if which == "w":

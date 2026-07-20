@@ -5,6 +5,7 @@ from Utilities import AUTOCALIBRATE_TO_IDEAL_INCOMING_VOLTAGE, WARM_TEST_EXISTS
 
 init(autoreset=True)
 import Utilities
+
 from WorkbookCreator import *
 from Tests import *
 
@@ -96,6 +97,7 @@ while test_more_boards_o7:
     print()
 
     if CorW =='w':
+        input("Press ENTER to continue")
     #this is the abridged test cycle for the current phase of early testing
         #warm
         CALIBRATED_VOLTAGE_IN, inboard = Utilities.AUTOCALIBRATE_TO_IDEAL_INCOMING_VOLTAGE(DMM, PS,
@@ -109,10 +111,10 @@ while test_more_boards_o7:
                 test_output["mc_ave_cur"] >= INITIAL_START_UP_CURRENT[0]]):
             #pass condition ^
             test_output["within_range1"] = "PASS"
-            print("Warm Operational Range: ",Fore.GREEN + "PASS")
+            print("WARM OPERATIONAL RANGE: ",Fore.GREEN + "PASS")
         else:
             test_output["within_range1"] = "FAIL"
-            print("Warm Operational Range: ", Fore.RED + "FAIL")
+            print("WARM OPERATIONAL RANGE: ", Fore.RED + "FAIL")
 
         insert_warm_traces(test_output["board_id"],
                        trace_output)
@@ -121,6 +123,7 @@ while test_more_boards_o7:
 
     elif CorW == 'c':
         #cold
+        input("Press ENTER to continue")
         if not WARM_TEST_EXISTS(str(test_output["board_id"])):
             #doesnt let you write ahead without the warm tests for benchmark
             print(Fore.RED + f"No warm tests exist for{test_output['board_id']}")
@@ -136,10 +139,10 @@ while test_more_boards_o7:
                 test_output["mc_ave_cur_c"] >= INPUT_CURRENT_COLD[0]]):
             #pass condition ^
             test_output["within_range1"] = "PASS"
-            print("Warm Operational Range: ",Fore.GREEN + "PASS")
+            print("COLD OPERATIONAL RANGE: ",Fore.GREEN + "PASS")
         else:
             test_output["within_range1"] = "FAIL"
-            print("Warm Operational Range: ", Fore.RED + "FAIL")
+            print("COLD OPERATIONAL RANGE: ", Fore.RED + "FAIL")
 
         update_cold_test(test_output)
         update_cold_traces(test_output["board_id"],trace_output)
@@ -152,6 +155,8 @@ while test_more_boards_o7:
     if debug:
         print(test_output)
         print(trace_output)
+
+    print()
 
 #safely close resources i hope
 PS.write("*RST")
