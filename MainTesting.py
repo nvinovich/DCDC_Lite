@@ -97,7 +97,7 @@ while test_more_boards_o7:
     print()
 
     if CorW =='w':
-        input("Press ENTER to continue")
+        input(Fore.MAGENTA+"Press ENTER to continue")
     #this is the abridged test cycle for the current phase of early testing
         #warm
         CALIBRATED_VOLTAGE_IN, inboard = Utilities.AUTOCALIBRATE_TO_IDEAL_INCOMING_VOLTAGE(DMM, PS,
@@ -123,7 +123,7 @@ while test_more_boards_o7:
 
     elif CorW == 'c':
         #cold
-        input("Press ENTER to continue")
+        input(Fore.MAGENTA+"Press ENTER to continue")
         if not WARM_TEST_EXISTS(str(test_output["board_id"])):
             #doesnt let you write ahead without the warm tests for benchmark
             print(Fore.RED + f"No warm tests exist for{test_output['board_id']}")
@@ -138,10 +138,10 @@ while test_more_boards_o7:
                 OUTPUT_VOLTAGE_COLD[0], test_output["mc_ave_cur_c"] <= INPUT_CURRENT_COLD[1],
                 test_output["mc_ave_cur_c"] >= INPUT_CURRENT_COLD[0]]):
             #pass condition ^
-            test_output["within_range1"] = "PASS"
+            test_output["within_range2"] = "PASS"
             print("COLD OPERATIONAL RANGE: ",Fore.GREEN + "PASS")
         else:
-            test_output["within_range1"] = "FAIL"
+            test_output["within_range2"] = "FAIL"
             print("COLD OPERATIONAL RANGE: ", Fore.RED + "FAIL")
 
         update_cold_test(test_output)

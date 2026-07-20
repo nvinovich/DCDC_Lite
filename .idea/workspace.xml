@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c612f6f6-696e-4d62-8fab-eda5afa28d58" name="Changes" comment="1.1 debug and graphing options">
+    <list default="true" id="c612f6f6-696e-4d62-8fab-eda5afa28d58" name="Changes" comment="1.2 minor behavior changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FetchBoardData.py" beforeDir="false" afterPath="$PROJECT_DIR$/FetchBoardData.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainTesting.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainTesting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WorkbookCreator.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkbookCreator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,6 +66,38 @@
       <recent name="C:\Users\StudentAdmin\PycharmProjects\DUNEDCDC_LITE" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="MainTesting" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DUNEDCDC_LITE" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MainTesting.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.MainTesting" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -81,7 +113,9 @@
       <option name="presentableId" value="Default" />
       <updated>1784488203866</updated>
       <workItem from="1784488204954" duration="10811000" />
-      <workItem from="1784556619336" duration="17425000" />
+      <workItem from="1784556619336" duration="17639000" />
+      <workItem from="1784574753016" duration="320000" />
+      <workItem from="1784575199904" duration="705000" />
     </task>
     <task id="LOCAL-00001" summary="1.0 minimal working version for the DCDC lite tests">
       <option name="closed" value="true" />
@@ -115,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784568252234</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1.2 minor behavior changes">
+      <option name="closed" value="true" />
+      <created>1784574483766</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1784574483766</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,11 +166,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1.0 minimal working version for the DCDC lite tests" />
     <MESSAGE value="1.1 debug and graphing options" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.1 debug and graphing options" />
+    <MESSAGE value="1.2 minor behavior changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.2 minor behavior changes" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/DUNEDCDC_LITE$Utilities.coverage" NAME="Utilities Coverage Results" MODIFIED="1784493416092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/DUNEDCDC_LITE$FetchBoardData.coverage" NAME="FetchBoardData Coverage Results" MODIFIED="1784567816510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/DUNEDCDC_LITE$MainTesting.coverage" NAME="MainTesting Coverage Results" MODIFIED="1784574298049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DUNEDCDC_LITE$Utilities.coverage" NAME="Utilities Coverage Results" MODIFIED="1784575581521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DUNEDCDC_LITE$FetchBoardData.coverage" NAME="FetchBoardData Coverage Results" MODIFIED="1784575466524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DUNEDCDC_LITE$MainTesting.coverage" NAME="MainTesting Coverage Results" MODIFIED="1784575446636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

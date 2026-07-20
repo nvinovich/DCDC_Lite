@@ -271,8 +271,8 @@ def Plot_All_Board_Voltages(yrs,
     boards = [x[0] for x in board_data]
     averages = [x[1] for x in board_data]
     deviations = [x[2] for x in board_data]
-    x = np.arange(len(boards))
 
+    x = np.arange(len(boards))
     mp.figure(figsize=(12, 6))
 
     mp.errorbar(
@@ -319,11 +319,11 @@ def Plot_All_Board_Voltages(yrs,
     print(Fore.GREEN + f"Plot saved to:\n{save_path}")
 
 
-
 if __name__ == "__main__":
     TRCHOICE = input(Fore.MAGENTA + ">Download full SQL data to PC (1)\n"
                                     ">Download full SQL data to external drive (2)\n"
                                     ">Download voltage stability plot (3)\n"
+                                    ">Donload single board stability plot (4)\n"
                             "Choose a readback option: ")
 
     if TRCHOICE == "1":

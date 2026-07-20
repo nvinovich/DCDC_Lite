@@ -108,7 +108,7 @@ def update_cold_test(data):
             """,
                            (
                                data["calibrated_voltage_cold"],
-                               data["voltage_dev_warm"],
+                               data["voltage_dev_cold"],
                                data["mc_ave_vol_c"],
                                data["mc_ave_cur_c"],
                                data["within_range2"],
